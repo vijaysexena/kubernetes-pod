@@ -1,0 +1,16 @@
+kind: Pod              # Creating a Kubernetes Pod resource.
+apiVersion: v1         # Specifies the API version of Kubernetes.
+metadata:              # metadata information about the Pod.
+  name: testpod        # name of the Pod.
+spec:                  # desired state of the Pod, including  containers, volumes, and other.
+  containers:
+    - name: c00        # name of the container.
+      image: ubuntu    # Docker image to use for this container.
+      command:
+        ["/bin/bash","-c","while true; do echo Hello-kubenetes; sleep 5 ; done",]
+  restartPolicy: Never # specifies the restart policy for the Pod  (Defaults to Always).
+
+
+# kubectl apply -f pod.yml  
+
+# kubectl log -f pod_name ( running in container)
